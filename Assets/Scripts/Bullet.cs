@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -33,7 +33,12 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        
+        Enemy enemy = target.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
+
         Destroy(gameObject);
     }
 }
